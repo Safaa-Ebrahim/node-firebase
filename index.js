@@ -2,6 +2,7 @@ const express = require("express");
 const admin = require("firebase-admin");
 
 const imageRoute = require("./routes/imageRoute");
+const imageShortingRoute = require("./routes/imageShortingRoute");
 
 // Initialize the Firebase Admin SDK
 const serviceAccount = require("./serviceAccountKey.json");
@@ -27,6 +28,7 @@ server.listen(port, () => {
 
 // routes
 server.use(imageRoute);
+server.use(imageShortingRoute);
 
 // not found MW
 server.use((req, res, next) => {
