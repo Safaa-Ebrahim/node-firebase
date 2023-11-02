@@ -4,7 +4,7 @@ module.exports.postShortUrl = async (request, response, next) => {
   const db = request.db;
   const url = request.query;
   const LongUrl = `https://api.shrtco.de/v2/shorten?url=${url}`;
-  fetch
+  axios
     .post(LongUrl)
     .then((res) => {
       const { short_link: shortLink } = res.data.result;
